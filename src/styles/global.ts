@@ -9,11 +9,11 @@ export const GlobalStyles = createGlobalStyle`
   }
   
   body {
-    display: flex;
+    /* display: flex;
     height: 100vh;
     width: 100vw;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     background-color: ${(props) => props.theme.colors["base-background"]};
   }
 

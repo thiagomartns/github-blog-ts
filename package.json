@@ -12,6 +12,7 @@
   "dependencies": {
     "@mantine/core": "^6.0.21",
     "@phosphor-icons/react": "^2.0.14",
+    "date-fns": "^2.30.0",
     "phosphor-icons": "^1.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

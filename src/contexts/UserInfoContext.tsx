@@ -10,8 +10,15 @@ interface UserInfoDataProps {
   followers: number;
 }
 
+interface UserInfoIssuesProps {
+  title: string;
+  body: string;
+  created_at: string;
+}
+
 interface UserInfoContextType {
   userInfoData: any;
+  userIssues: any;
 }
 
 interface UserInfoProviderProps {
@@ -22,8 +29,17 @@ export const UserInfoContext = createContext({} as UserInfoContextType);
 
 export function UserInfoProvider({ children }: UserInfoProviderProps) {
   const [userInfoData, setUserInfoData] = useState<UserInfoDataProps | null>();
+  const [userIssues, setUserIssues] = useState<UserInfoIssuesProps | null>();
 
-  const username = "thiagomartns";
+  const username = "rocketseat-education";
+
+  async function loadUserIssues() {
+    const response = await fetch(
+      `https://api.github.com/repos/${username}/reactjs-github-blog-challenge/issues/1`
+    );
+    const data = await response.json();
+    setUserIssues(data);
+  }
 
   async function loadUserInfo() {
     const response = await fetch(`https://api.github.com/users/${username}`);
@@ -32,11 +48,12 @@ export function UserInfoProvider({ children }: UserInfoProviderProps) {
   }
 
   useEffect(() => {
+    loadUserIssues();
     loadUserInfo();
   }, []);
 
   return (
-    <UserInfoContext.Provider value={{ userInfoData }}>
+    <UserInfoContext.Provider value={{ userInfoData, userIssues }}>
       {children}
     </UserInfoContext.Provider>
   );

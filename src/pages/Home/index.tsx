@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import {
   HomeContainer,
   UserAvatar,
   UserBio,
   UserCard,
+  UserInfoList,
   UserLinkContainer,
   UserName,
 } from "./styles";
@@ -13,31 +14,10 @@ import {
   GithubLogo,
   Users,
 } from "@phosphor-icons/react";
-
-interface UserInfoDataProps {
-  avatar_url: string;
-  login: string;
-  name: string;
-  bio: string;
-  html_url: string;
-  company: string;
-  followers: number;
-}
+import { UserInfoContext } from "../../contexts/UserInfoContext";
 
 export const Home = () => {
-  const [userInfoData, setUserInfoData] = useState<UserInfoDataProps | null>();
-
-  const username = "thiagomartns";
-
-  async function loadUserInfo() {
-    const response = await fetch(`https://api.github.com/users/${username}`);
-    const data = await response.json();
-    setUserInfoData(data);
-  }
-
-  useEffect(() => {
-    loadUserInfo();
-  }, []);
+  const { userInfoData } = useContext(UserInfoContext);
 
   return (
     <HomeContainer>
@@ -48,30 +28,28 @@ export const Home = () => {
             <UserName>{userInfoData?.name}</UserName>
             <UserBio>{userInfoData?.bio}</UserBio>
           </div>
-          <div className="userGHStats">
-            <ul>
-              <li>
-                <div className="icon">
-                  <GithubLogo />
-                </div>
-                <span className="statsInfo">{userInfoData?.login}</span>
-              </li>
-              <li>
-                <div className="icon">
-                  <Buildings />
-                </div>
-                <span className="statsInfo">{userInfoData?.company}</span>
-              </li>
-              <li>
-                <div className="icon">
-                  <Users />
-                </div>
-                <span className="statsInfo">
-                  {userInfoData?.followers} seguidores
-                </span>
-              </li>
-            </ul>
-          </div>
+          <UserInfoList>
+            <li>
+              <div className="icon">
+                <GithubLogo />
+              </div>
+              <span className="statsInfo">{userInfoData?.login}</span>
+            </li>
+            <li>
+              <div className="icon">
+                <Buildings />
+              </div>
+              <span className="statsInfo">{userInfoData?.company}</span>
+            </li>
+            <li>
+              <div className="icon">
+                <Users />
+              </div>
+              <span className="statsInfo">
+                {userInfoData?.followers} seguidores
+              </span>
+            </li>
+          </UserInfoList>
         </div>
         <UserLinkContainer>
           <a href={userInfoData?.html_url}>

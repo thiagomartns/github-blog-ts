@@ -45,41 +45,6 @@ export const UserCard = styled.div`
         gap: 0.5rem;
       }
     }
-
-    .userGHStats {
-      margin: 1rem 0;
-
-      @media (min-width: 767px) {
-        margin: 0;
-      }
-
-      ul {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-
-        @media (min-width: 767px) {
-          flex-direction: row;
-        }
-
-        li {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-
-          .icon {
-            color: ${(props) => props.theme.colors["base-label"]};
-            font-size: 1.125rem;
-          }
-
-          span {
-            color: ${(props) => props.theme.colors["base-subtitle"]};
-            font: ${(props) => props.theme.fonts.regular};
-          }
-        }
-      }
-    }
   }
 `;
 
@@ -132,6 +97,35 @@ export const UserLinkContainer = styled.div`
 
     @media (min-width: 767px) {
       margin: 0;
+    }
+  }
+`;
+
+export const UserInfoList = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
+
+  @media (min-width: 767px) {
+    flex-direction: row;
+    margin: 0;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .icon {
+      color: ${(props) => props.theme.colors["base-label"]};
+      font-size: 1.125rem;
+    }
+
+    span {
+      color: ${(props) => props.theme.colors["base-subtitle"]};
+      font: ${(props) => props.theme.fonts.regular};
     }
   }
 `;

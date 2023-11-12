@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import {
   HomeContainer,
+  Issue,
+  IssuesList,
   SearchFormContainer,
   UserAvatar,
   UserBio,
@@ -65,8 +67,58 @@ export const Home = () => {
           <h1>Publicações</h1>
           <span>6 publicações</span>
         </div>
-        <StyledTextInput placeholder="Buscar conteúdo" />
+        <StyledTextInput size="md" placeholder="Buscar conteúdo" />
       </SearchFormContainer>
+      <IssuesList>
+        <Issue>
+          <div className="title">
+            <h1>Javascript data types and data structures</h1>
+            <span>Há 1 dia</span>
+          </div>
+          <p>
+            Programming languages all have built-in data structures, but these
+            often differ from one language to another. This article attempts to
+            list the built-in data structures available in JavaScript and what
+            properties they have.{" "}
+          </p>
+        </Issue>
+        <Issue>
+          <div className="title">
+            <h1>Javascript data types and data structures</h1>
+            <span>Há 1 dia</span>
+          </div>
+          <p>
+            Programming languages all have built-in data structures, but these
+            often differ from one language to another. This article attempts to
+            list the built-in data structures available in JavaScript and what
+            properties they have.{" "}
+          </p>
+        </Issue>
+        <Issue>
+          <div className="title">
+            <h1>Javascript data types and data structures</h1>
+            <span>Há 1 dia</span>
+          </div>
+          <p>
+            Programming languages all have built-in data structures, but these
+            often differ from one language to another. This article attempts to
+            list the built-in data structures available in JavaScript and what
+            properties they have.{" "}
+          </p>
+        </Issue>
+        <Issue>
+          <div className="title">
+            <h1>Javascript data types and data structures</h1>
+            <span>Há 1 dia</span>
+          </div>
+          <p>
+            Programming languages all have built-in data structures, but these
+            often differ from one language to another. This article attempts to
+            list the built-in data structures available in JavaScript and what
+            properties they have.{" "}
+          </p>
+        </Issue>
+      </IssuesList>
     </HomeContainer>
   );
 };

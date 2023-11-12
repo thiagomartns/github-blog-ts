@@ -97,6 +97,10 @@ export const UserLinkContainer = styled.div`
 
     @media (min-width: 767px) {
       margin: 0;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 `;
@@ -126,6 +130,32 @@ export const UserInfoList = styled.ul`
     span {
       color: ${(props) => props.theme.colors["base-subtitle"]};
       font: ${(props) => props.theme.fonts.regular};
+    }
+  }
+`;
+
+export const SearchFormContainer = styled.section`
+  width: 100%;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .publication {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+      font: ${(props) => props.theme.fonts.bold};
+      font-size: 1.125rem;
+      color: white;
+    }
+
+    span {
+      font: ${(props) => props.theme.fonts.regular};
+      font-size: 0.825rem;
+      color: ${(props) => props.theme.colors["base-span"]};
     }
   }
 `;

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import {
   HomeContainer,
+  SearchFormContainer,
   UserAvatar,
   UserBio,
   UserCard,
@@ -15,6 +16,7 @@ import {
   Users,
 } from "@phosphor-icons/react";
 import { UserInfoContext } from "../../contexts/UserInfoContext";
+import { StyledTextInput } from "../../components/styled-components/styled-textinput";
 
 export const Home = () => {
   const { userInfoData } = useContext(UserInfoContext);
@@ -58,6 +60,13 @@ export const Home = () => {
           </a>
         </UserLinkContainer>
       </UserCard>
+      <SearchFormContainer>
+        <div className="publication">
+          <h1>Publicações</h1>
+          <span>6 publicações</span>
+        </div>
+        <StyledTextInput placeholder="Buscar conteúdo" />
+      </SearchFormContainer>
     </HomeContainer>
   );
 };

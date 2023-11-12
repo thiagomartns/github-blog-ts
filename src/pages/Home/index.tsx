@@ -25,7 +25,7 @@ interface UserInfoDataProps {
 }
 
 export const Home = () => {
-  const [userInfoData, setUserInfoData] = useState<UserInfoDataProps>();
+  const [userInfoData, setUserInfoData] = useState<UserInfoDataProps | null>();
 
   const username = "thiagomartns";
 
@@ -44,8 +44,10 @@ export const Home = () => {
       <UserCard>
         <UserAvatar src={userInfoData?.avatar_url} alt="" />
         <div className="userBio">
-          <UserName>{userInfoData?.name}</UserName>
-          <UserBio>{userInfoData?.bio}</UserBio>
+          <div className="userNameandBio">
+            <UserName>{userInfoData?.name}</UserName>
+            <UserBio>{userInfoData?.bio}</UserBio>
+          </div>
           <div className="userGHStats">
             <ul>
               <li>

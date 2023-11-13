@@ -204,7 +204,8 @@ export const Issue = styled.div`
       width: 20ch;
 
       @media (min-width: 767px) {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+        width: 90%;
       }
     }
 

@@ -24,6 +24,7 @@ import {
 import { StyledTextInput } from "../../components/styled-components/styled-textinput";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import Markdown from "react-markdown";
 
 export const Home = () => {
   const { userInfoData, userIssues } = useContext(UserInfoContext);
@@ -86,7 +87,9 @@ export const Home = () => {
               <h1>{issue?.title}</h1>
               <span>{getDateAhead(issue?.created_at)}</span>
             </div>
-            <p>{issue?.body?.substring(0, 200)}...</p>
+            <Markdown>
+              {issue?.body ? issue.body.substring(0, 250) + "..." : ""}
+            </Markdown>
           </Issue>
         ))}
       </IssuesList>

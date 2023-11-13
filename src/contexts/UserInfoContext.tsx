@@ -34,7 +34,7 @@ export function UserInfoProvider({ children }: UserInfoProviderProps) {
     []
   );
 
-  const username = "rocketseat-education";
+  const username = "thiagomartns";
 
   async function loadUserIssues() {
     let i = 1;

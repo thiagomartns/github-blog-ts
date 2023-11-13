@@ -17,7 +17,10 @@ import {
   GithubLogo,
   Users,
 } from "@phosphor-icons/react";
-import { UserInfoContext } from "../../contexts/UserInfoContext";
+import {
+  UserInfoContext,
+  UserInfoIssuesProps,
+} from "../../contexts/UserInfoContext";
 import { StyledTextInput } from "../../components/styled-components/styled-textinput";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
@@ -25,7 +28,7 @@ import { ptBR } from "date-fns/locale";
 export const Home = () => {
   const { userInfoData, userIssues } = useContext(UserInfoContext);
 
-  function getDateAhead(data: string) {
+  function getDateAhead(data: any) {
     const dataCriacao = new Date(data);
     return formatDistanceToNow(dataCriacao, { addSuffix: true, locale: ptBR });
   }
@@ -72,20 +75,20 @@ export const Home = () => {
       <SearchFormContainer>
         <div className="publication">
           <h1>Publicações</h1>
-          <span>6 publicações</span>
+          <span>{userIssues.length} publicações</span>
         </div>
         <StyledTextInput size="md" placeholder="Buscar conteúdo" />
       </SearchFormContainer>
       <IssuesList>
-        <Issue>
-          <div className="title">
-            <h1>{userIssues?.title}</h1>
-            {userIssues !== undefined && (
-              <span>{getDateAhead(userIssues?.created_at)}</span>
-            )}
-          </div>
-          <p>{userIssues?.body.substring(0, 200)}...</p>
-        </Issue>
+        {userIssues?.map((issue: UserInfoIssuesProps) => (
+          <Issue key={issue?.id}>
+            <div className="title">
+              <h1>{issue?.title}</h1>
+              <span>{getDateAhead(issue?.created_at)}</span>
+            </div>
+            <p>{issue?.body?.substring(0, 200)}...</p>
+          </Issue>
+        ))}
       </IssuesList>
     </HomeContainer>
   );

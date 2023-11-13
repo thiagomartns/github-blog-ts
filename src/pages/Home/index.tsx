@@ -25,12 +25,10 @@ import { ptBR } from "date-fns/locale";
 export const Home = () => {
   const { userInfoData, userIssues } = useContext(UserInfoContext);
 
-  function getDateAhead(data: any) {
+  function getDateAhead(data: string) {
     const dataCriacao = new Date(data);
     return formatDistanceToNow(dataCriacao, { addSuffix: true, locale: ptBR });
   }
-
-  console.log(userIssues);
 
   return (
     <HomeContainer>
@@ -82,7 +80,9 @@ export const Home = () => {
         <Issue>
           <div className="title">
             <h1>{userIssues?.title}</h1>
-            <span>{getDateAhead(userIssues?.created_at)}</span>
+            {userIssues !== undefined && (
+              <span>{getDateAhead(userIssues?.created_at)}</span>
+            )}
           </div>
           <p>{userIssues?.body.substring(0, 200)}...</p>
         </Issue>

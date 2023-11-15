@@ -15,6 +15,7 @@ export const GlobalStyles = createGlobalStyle`
     align-items: center;
     justify-content: center; */
     background-color: ${(props) => props.theme.colors["base-background"]};
+
   }
 
   h1 {

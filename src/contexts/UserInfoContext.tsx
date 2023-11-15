@@ -9,12 +9,17 @@ interface UserInfoDataProps {
   company: string;
   followers: number;
 }
+export interface UserIssue {
+  login: string;
+}
 
 export interface UserInfoIssuesProps {
   title: string | null;
   body?: string | null;
   created_at: string | null;
   id: number | null;
+  comments: number | undefined | null;
+  user: UserIssue;
 }
 
 interface UserInfoContextType {

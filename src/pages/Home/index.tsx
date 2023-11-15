@@ -4,19 +4,8 @@ import {
   Issue,
   IssuesList,
   SearchFormContainer,
-  UserAvatar,
-  UserBio,
-  UserCard,
-  UserInfoList,
-  UserLinkContainer,
-  UserName,
 } from "./styles";
-import {
-  ArrowSquareOut,
-  Buildings,
-  GithubLogo,
-  Users,
-} from "@phosphor-icons/react";
+
 import {
   UserInfoContext,
   UserInfoIssuesProps,
@@ -25,9 +14,10 @@ import { StyledTextInput } from "../../components/styled-components/styled-texti
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import Markdown from "react-markdown";
+import { UserCard } from "../../components/UserCard";
 
 export const Home = () => {
-  const { userInfoData, userIssues } = useContext(UserInfoContext);
+  const { userIssues } = useContext(UserInfoContext);
 
   function getDateAhead(data: any) {
     const dataCriacao = new Date(data);
@@ -36,43 +26,7 @@ export const Home = () => {
 
   return (
     <HomeContainer>
-      <UserCard>
-        <UserAvatar src={userInfoData?.avatar_url} alt="" />
-        <div className="userBio">
-          <div className="userNameandBio">
-            <UserName>{userInfoData?.name}</UserName>
-            <UserBio>{userInfoData?.bio}</UserBio>
-          </div>
-          <UserInfoList>
-            <li>
-              <div className="icon">
-                <GithubLogo />
-              </div>
-              <span className="statsInfo">{userInfoData?.login}</span>
-            </li>
-            <li>
-              <div className="icon">
-                <Buildings />
-              </div>
-              <span className="statsInfo">{userInfoData?.company}</span>
-            </li>
-            <li>
-              <div className="icon">
-                <Users />
-              </div>
-              <span className="statsInfo">
-                {userInfoData?.followers} seguidores
-              </span>
-            </li>
-          </UserInfoList>
-        </div>
-        <UserLinkContainer>
-          <a href={userInfoData?.html_url}>
-            GITHUB
-            <ArrowSquareOut />
-          </a>
-        </UserLinkContainer>
-      </UserCard>
+      <UserCard />
       <SearchFormContainer>
         <div className="publication">
           <h1>Publicações</h1>

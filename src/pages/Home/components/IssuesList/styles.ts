@@ -24,6 +24,10 @@ export const Issue = styled.div`
   border-radius: 10px;
   width: 300px;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   @media (min-width: 767px) {
     width: 425px;
     margin-bottom: 3rem;

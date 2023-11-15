@@ -20,6 +20,10 @@ export interface UserInfoIssuesProps {
 interface UserInfoContextType {
   userInfoData: any;
   userIssues: any;
+  setSelectedIssues: React.Dispatch<
+    React.SetStateAction<UserInfoIssuesProps | null>
+  >;
+  selectedIssues: UserInfoIssuesProps | null;
 }
 
 interface UserInfoProviderProps {
@@ -33,6 +37,8 @@ export function UserInfoProvider({ children }: UserInfoProviderProps) {
   const [userIssues, setUserIssues] = useState<UserInfoIssuesProps[] | null>(
     []
   );
+  const [selectedIssues, setSelectedIssues] =
+    useState<UserInfoIssuesProps | null>(null);
 
   const username = "thiagomartns";
 
@@ -78,7 +84,9 @@ export function UserInfoProvider({ children }: UserInfoProviderProps) {
   }, []);
 
   return (
-    <UserInfoContext.Provider value={{ userInfoData, userIssues }}>
+    <UserInfoContext.Provider
+      value={{ userInfoData, userIssues, setSelectedIssues, selectedIssues }}
+    >
       {children}
     </UserInfoContext.Provider>
   );

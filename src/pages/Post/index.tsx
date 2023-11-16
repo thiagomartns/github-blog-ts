@@ -5,6 +5,7 @@ import {
   PostCardContainer,
   PostContainerStyles,
   PostLinkContainer,
+  TextContainer,
 } from "./styles";
 import {
   ArrowSquareOut,
@@ -54,6 +55,7 @@ export const Post = () => {
             </span>
           </li>
         </UserInfoList>
+
         <PostLinkContainer>
           <a href={selectedIssues?.html_url}>
             VER NO GITHUB
@@ -61,9 +63,9 @@ export const Post = () => {
           </a>
         </PostLinkContainer>
       </PostCardContainer>
-      <p>
-        <Markdown>{selectedIssues?.body}</Markdown>
-      </p>
+      <TextContainer>
+        <Markdown className="react-markdown">{selectedIssues?.body}</Markdown>
+      </TextContainer>
     </PostContainerStyles>
   );
 };

@@ -38,3 +38,13 @@ export const PostLinkContainer = styled(UserLinkContainer)`
     top: 25%;
   }
 `;
+
+export const TextContainer = styled.p`
+  margin-bottom: 3rem;
+
+  .react-markdown {
+    white-space: pre-wrap;
+    line-height: 1.6;
+    hyphens: auto;
+  }
+`;

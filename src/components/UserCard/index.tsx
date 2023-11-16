@@ -33,12 +33,15 @@ export const UserCard = () => {
             </div>
             <span className="statsInfo">{userInfoData?.login}</span>
           </li>
-          <li>
-            <div className="icon">
-              <Buildings />
-            </div>
-            <span className="statsInfo">{userInfoData?.company}</span>
-          </li>
+          {userInfoData?.company && (
+            <li>
+              <div className="icon">
+                <Buildings />
+              </div>
+              <span className="statsInfo">{userInfoData?.company}</span>
+            </li>
+          )}
+
           <li>
             <div className="icon">
               <Users />

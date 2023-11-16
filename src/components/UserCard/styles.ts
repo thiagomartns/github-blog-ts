@@ -116,7 +116,7 @@ export const UserInfoList = styled.ul`
 
     .icon {
       color: ${(props) => props.theme.colors["base-label"]};
-      font-size: 1.125rem;
+      font-size: 1.5rem;
     }
 
     span {

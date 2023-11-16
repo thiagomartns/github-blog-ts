@@ -1,25 +1,14 @@
-import { useContext } from "react";
-import { HomeContainer, SearchFormContainer } from "./styles";
-
-import { UserInfoContext } from "../../contexts/UserInfoContext";
-import { StyledTextInput } from "../../components/styled-components/styled-textinput";
+import { HomeContainer } from "./styles";
 
 import { UserCard } from "../../components/UserCard";
 import { IssuesList } from "./components/IssuesList";
+import { SearchIssues } from "./components/SearchIssues";
 
 export const Home = () => {
-  const { userIssues } = useContext(UserInfoContext);
-
   return (
     <HomeContainer>
       <UserCard />
-      <SearchFormContainer>
-        <div className="publication">
-          <h1>Publicações</h1>
-          <span>{userIssues.length} publicações</span>
-        </div>
-        <StyledTextInput size="md" placeholder="Buscar conteúdo" />
-      </SearchFormContainer>
+      <SearchIssues />
       <IssuesList />
     </HomeContainer>
   );

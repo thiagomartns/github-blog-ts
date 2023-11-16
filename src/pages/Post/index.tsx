@@ -50,8 +50,8 @@ export const Post = () => {
               {selectedIssues?.comments === 0
                 ? "Nenhum comentário"
                 : selectedIssues?.comments === 1
-                ? "comentário"
-                : "comentários"}
+                ? "1 comentário"
+                : `${selectedIssues?.comments} comentários`}
             </span>
           </li>
         </UserInfoList>

@@ -20,6 +20,7 @@ export interface UserInfoIssuesProps {
   id: number | null;
   comments: number | undefined | null;
   user: UserIssue;
+  html_url: string;
 }
 
 interface UserInfoContextType {
@@ -45,7 +46,7 @@ export function UserInfoProvider({ children }: UserInfoProviderProps) {
   const [selectedIssues, setSelectedIssues] =
     useState<UserInfoIssuesProps | null>(null);
 
-  const username = "thiagomartns";
+  const username = "rocketseat-education";
 
   async function loadUserIssues() {
     let i = 1;

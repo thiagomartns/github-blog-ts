@@ -1,12 +1,17 @@
 import { useContext } from "react";
-import {
-  UserCardContainer,
-  UserInfoList,
-  UserName,
-} from "../../components/UserCard/styles";
+import { UserInfoList, UserName } from "../../components/UserCard/styles";
 import { UserInfoContext } from "../../contexts/UserInfoContext";
-import { PostContainerStyles } from "./styles";
-import { CalendarBlank, ChatText, GithubLogo } from "@phosphor-icons/react";
+import {
+  PostCardContainer,
+  PostContainerStyles,
+  PostLinkContainer,
+} from "./styles";
+import {
+  ArrowSquareOut,
+  CalendarBlank,
+  ChatText,
+  GithubLogo,
+} from "@phosphor-icons/react";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import Markdown from "react-markdown";
@@ -21,7 +26,7 @@ export const Post = () => {
 
   return (
     <PostContainerStyles>
-      <UserCardContainer>
+      <PostCardContainer>
         <UserName>{selectedIssues?.title}</UserName>
         <UserInfoList>
           <li>
@@ -49,7 +54,13 @@ export const Post = () => {
             </span>
           </li>
         </UserInfoList>
-      </UserCardContainer>
+        <PostLinkContainer>
+          <a href={selectedIssues?.html_url}>
+            VER NO GITHUB
+            <ArrowSquareOut />
+          </a>
+        </PostLinkContainer>
+      </PostCardContainer>
       <p>
         <Markdown>{selectedIssues?.body}</Markdown>
       </p>

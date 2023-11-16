@@ -10,6 +10,7 @@ export const UserCardContainer = styled.div`
   margin: -3rem 0 3rem;
   border-radius: 8px;
   background-color: ${(props) => props.theme.colors["base-profile"]};
+  box-shadow: 0px 2px 28px 0px rgba(0, 0, 0, 0.2);
 
   @media (min-width: 767px) {
     flex-direction: row;
